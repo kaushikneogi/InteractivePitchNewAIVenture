@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch for building: Horizontal AI Platform with Vertical Capabilities</title>
+    <!-- Chosen Palette: Calm Harmony (Warm Neutral, Slate, Muted Blue, Teal) -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling narrative SPA designed for investors. The structure logically flows from the high-level vision and ask, to market opportunity, the solution, tangible progress (prototypes), the future roadmap, and finally the team. This structure tells a compelling story, with interactive charts and tabs for data deep-dives, making it more engaging and digestible than a static document. -->
+    <!-- Visualization & Content Choices: Market Size: Bar Chart (Chart.js) to compare India/EU numbers. Interaction: Hover. Justification: Clear visual comparison. Target Verticals: Tabbed Interface (JS) to organize details without clutter. Interaction: Click. Justification: Progressive disclosure. Roadmap: CSS/HTML Timeline. Justification: More engaging than a list. Prototypes: Card Grid (Tailwind). Justification: Clean, scannable presentation of work. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #334155;
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #3B82F6;
+        }
+        .tab-btn.active {
+            border-color: #3B82F6;
+            background-color: #EFF6FF;
+            color: #1E40AF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #DBEAFE;
+            border: 4px solid #3B82F6;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -21px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background-color: #DBEAFE;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800">AI Platform Thesis</h1>
+            <div class="hidden md:flex space-x-6 text-slate-600 font-semibold">
+                <a href="#vision" class="nav-link">Vision</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#market" class="nav-link">Market</a>
+                <a href="#solution" class="nav-link">Solution</a>
+                <a href="#progress" class="nav-link">Progress</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#journey" class="nav-link">My Journey</a>
+                <a href="#ask" class="nav-link">The Ask</a>
+            </div>
+            <div class="md:hidden">
+                <select onchange="window.location.href=this.value" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="#">Menu</option>
+                    <option value="#vision">Vision</option>
+                    <option value="#team">Team</option>
+                    <option value="#market">Market</option>
+                    <option value="#solution">Solution</option>
+                    <option value="#progress">Progress</option>
+                    <option value="#roadmap">Roadmap</option>
+                    <option value="#journey">My Journey</option>
+                    <option value="#ask">The Ask</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16 space-y-24 md:space-y-32">
+
+        <section id="vision" class="text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4">Building a Horizontal AI Platform with Vertical Impact</h2>
+            <p class="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-12">
+                My core thesis is to build a foundational AI platform that serves diverse industries through specialized, vertical capabilities. I am looking to establish a new venture, seeking a $50K-$150K pre-seed investment to validate my thesis and build an enduring organization with strategic investors such as Incubators, Venture Studios, Early Stage Investors from day one.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600">$50K-$150k</div>
+                    <div class="text-slate-500 mt-2">Pre-Seed Ask</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600">1</div>
+                    <div class="text-slate-500 mt-2">Founder (Business & Semi-Technical)</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600">4+</div>
+                    <div class="text-slate-500 mt-2">Initial Identified Target Verticals</div>
+                </div>
+            </div>
+             </div>
+        </section>
+            
+     <!-- Embedded Videos Section -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                <div class="w-full md:w-1/2 bg-white p-4 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-slate-700 mb-4">Founder Pitch Video</h3>
+                    <div class="relative" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
+                            src="https://www.youtube.com/embed/MbxfJs6Gy5M"
+                            title="Founder Pitch Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 bg-white p-4 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-slate-700 mb-4">Prototypes Demo</h3>
+                    <div class="relative" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
+                            src="https://www.youtube.com/embed/6p-AN-Vsxc8"
+                            title="Prototypes Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- End Embedded Videos Section -->
+        
+        </section>
+
+        <section id="team" class="text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">The Founder & Credentials</h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4 mb-8">
+                From having a background in Law, with an interest & experience in Media, I have over the years transitioned into IT as a Technology Business Professional. I have a blend of commercial acumen and Semi-technical expertise. Some of the recent work at my current startup which has been recognized by Intel. If selected I would build a technical team and on-board technical co-founders.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.linkedin.com/in/kaushik-neogi/" target="_blank" class="bg-blue-600
+                    text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">View Founder Profile</a>
+                <a
+                    href="https://www.intel.com/content/www/us/en/developer/articles/community/future-of-ai-startups-crafting-agentic-solutions.html" target="_blank" class="bg-white border border-slate-300 text-slate-700
+                    font-bold py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors">Intel Feature #1</a>
+                <a
+                    href="https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-Al/What-Startups-Built-This-Time-at-Intel-Liftoff-Days/post/1692738" target="_blank" class="bg-white border border-slate-300
+                    text-slate-700 font-bold py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors">Intel Feature #2</a>
+            </div>
+        </section>
+
+        <section id="market">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Tapping a Vast Global Market</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                    This section explores the significant market opportunity I am targeting. The horizontal platform is designed to serve multiple verticals, and the interactive chart below highlights the initial opportunity for scale in just two of our key segments. Click the tabs to explore the specific problems we solve for each customer type. I plan to build capabilities for these sectors over time.
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h3 class="font-bold text-xl text-slate-700 text-center mb-6">Market Size Snapshot (India vs. EU)</h3>
+                <div class="chart-container">
+                    <canvas id="marketSizeChart"></canvas>
+                </div>
+                <div class="mt-8">
+                    <div class="flex flex-wrap justify-center border-b border-slate-200">
+                        <button class="tab-btn active px-4 py-2 font-semibold text-slate-600 border-b-2 border-transparent -mb-px" onclick="openTab(event, 'smbs')">SMBs</button>
+                        <button class="tab-btn px-4 py-2 font-semibold text-slate-600 border-b-2 border-transparent -mb-px" onclick="openTab(event, 'legal')">LegalTech</button>
+                        <button class="tab-btn px-4 py-2 font-semibold text-slate-600 border-b-2 border-transparent -mb-px" onclick="openTab(event, 'martech')">Ad/MarTech</button>
+                        <button class="tab-btn px-4 py-2 font-semibold text-slate-600 border-b-2 border-transparent -mb-px" onclick="openTab(event, 'education')">Education</button>
+                    </div>
+                    <div id="smbs" class="tab-content py-6 px-2">
+                        <h4 class="font-bold text-lg text-slate-800">Empowering Small & Medium Businesses</h4>
+                        <p class="text-slate-600 mt-2">The platform will potentially provide SLMs, AI tools, and agentic workflows to enhance compliance, brainstorming, and overall productivity for the backbone of the economy. the tools are designed to be accessible and affordable for millions of businesses.</p>
+                        <a href="https://kaushikneogi.github.io/SMBSLMOpportunity/" target="_blank" class="text-blue-600 hover:underline mt-2 inline-block">Learn More &rarr;</a>
+                    </div>
+                    <div id="legal" class="tab-content py-6 px-2" style="display: none;">
+                        <h4 class="font-bold text-lg text-slate-800">Transforming the Legal Sector</h4>
+                        <p class="text-slate-600 mt-2">The platform will offer specialized AI tools and agentic workflows for legal professionals, streamlining complex tasks like contract drafting, analysis, and legal research, saving time and reducing errors.</p>
+                        <a href="https://kaushikneogi.github.io/AlinLegalTech/" target="_blank" class="text-blue-600 hover:underline mt-2 inline-block">Learn More &rarr;</a>
+                    </div>
+                    <div id="martech" class="tab-content py-6 px-2" style="display: none;">
+                        <h4 class="font-bold text-lg text-slate-800">Innovating for Advertising & Marketing</h4>
+                        <p class="text-slate-600 mt-2">Looking forward to enabling marketing and advertising professionals with powerful AI for hyper-personalized content generation, market trend analysis, and extracting GTM insights, leading to more effective campaigns.</p>
+                        <a href="https://kaushikneogi.github.io/AlforADandMARTech/" target="_blank" class="text-blue-600 hover:underline mt-2 inline-block">Learn More &rarr;</a>
+                    </div>
+                    <div id="education" class="tab-content py-6 px-2" style="display: none;">
+                        <h4 class="font-bold text-lg text-slate-800">Revolutionizing Education</h4>
+                        <p class="text-slate-600 mt-2">For educators, the platform will offer tools to create personalized learning plans. For students, we provide AI-powered learning assistants, making education more adaptive, engaging, and effective for millions globally.</p>
+                        <a href="https://kaushikneogi.github.io/AlinEducationOpportunity/" target="_blank" class="text-blue-600 hover:underline mt-2 inline-block">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+<!-- New section: Target Market Potential - Education Sector -->
+            <div class="mt-12 bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h3 class="font-bold text-xl text-slate-700 text-center mb-6">Target Market Potential - Key Developments and Initiatives Undertaken by many globally to target the Education Sector</h3>
+                <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-8">
+                    Education Market Potential - Sales to Private Institutions, Government (Public Institutions) & Direct-To-Students/Direct-To-Educators
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://bestcolleges.indiatoday.in/news-detail/delhi-education-minister-ashish-sood-promises-safer-and-smarter-government-schools-4691" target="_blank" class="gallery-link">
+                        <h4 class="font-semibold text-blue-600">Delhi Education Minister Ashish Sood promises safer and smarter government schools</h4>
+                        <p class="text-slate-600 text-sm mt-2">India Today - News on government initiatives in education.</p>
+                    </a>
+                    <a href="https://www.jagranjosh.com/general-knowledge/what-is-soar-progamme-india-rolls-out-massive-ai-skilling-for-schools-1820000924-1" target="_blank" class="gallery-link">
+                        <h4 class="font-semibold text-blue-600">What is SOAR Programme? India rolls out massive AI skilling for schools</h4>
+                        <p class="text-slate-600 text-sm mt-2">Jagran Josh - Details on AI skilling programs in Indian schools.</p>
+                    </a>
+                    <a href="https://www.forbes.com/sites/danfitzpatrick/2025/07/08/microsoft-openai--anthropic-fund-a-national-ai-academy-for-teachers/" target="_blank" class="gallery-link">
+                        <h4 class="font-semibold text-blue-600">Microsoft, OpenAI & Anthropic Fund A National AI Academy For Teachers</h4>
+                        <p class="text-slate-600 text-sm mt-2">Forbes - Global initiatives for AI in teacher training.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">The Five-Pillar AI Solution</h2>
+                 <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                    The proposed platform will be built on five interconnected pillars that provide a comprehensive and powerful AI ecosystem. This approach allows us to deliver robust, vendor-agnostic, and enterprise-grade solutions that are both flexible and secure.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-slate-800">Proprietary SLMs</h3>
+                    <p class="text-slate-600 mt-2">Fine-tuned/Custom, sector-specific Small Language Models for nuanced, multi-turn conversational AI with contextual memory.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-slate-800">AI Agents</h3>
+                    <p class="text-slate-600 mt-2">Autonomous agents for complex tasks like document generation, media creation & others.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-slate-800">Proprietary Orchestrator</h3>
+                    <p class="text-slate-600 mt-2">A vendor-agnostic engine that combines multiple LLMs to deliver optimized, cost-effective, and superior responses.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-slate-800">Proprietary Multi-Agent Framework</h3>
+                    <p class="text-slate-600 mt-2">An advanced protocol for deploying secure, autonomous, enterprise-grade agents that can collaborate on complex workflows.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-slate-800">Proprietary Tokenizer (Koins)</h3>
+                    <p class="text-slate-600 mt-2">The Koins system will facilitate managing the varying price-to-token ratios across different AI models and providers, offering a standardized unit for consumption.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Tangible Progress & Prototypes</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                    At my current startup we believed in building and testing. Over the last 6 months, despite being bootstrapped, pre-revenue and having limited resources, we have developed several entry-level prototypes to validate our core concepts and technical architecture. This demonstrates our ability to execute and our commitment to the vision. We have also secured $35,000 in cloud credits which helped us develop the prototypes - The Amount initially was much greater but due recent changes across providers as a non-funded startup the number came down.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://orchestrator.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">Proprietary AI Orchestrator</h3>
+                    <p class="text-slate-600 mt-2">Queries multiple AI models and summarizes responses. The core of our vendor-agnostic approach.</p>
+                </a>
+                <a href="https://bedrock.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">AI Assistant (Bedrock)</h3>
+                    <p class="text-slate-600 mt-2">Powered by Cohere, AI21, Mistral, Meta & AWS models.</p>
+                </a>
+                <a href="https://obot.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">AI Assistant (OpenAI)</h3>
+                    <p class="text-slate-600 mt-2">Utilizes OpenAI models via the Azure cloud platform.</p>
+                </a>
+                <a href="https://gbox.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">AI Assistant (Google - Mid-level)</h3>
+                    <p class="text-slate-600 mt-2">Integration of Google models via Google Cloud (mid-level in progress) (Similar interface for other model providers and Master Mid-Level Agent).</p>
+                </a>
+                <a href="https://gbot.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">AI Assistant (Google)</h3>
+                    <p class="text-slate-600 mt-2">Integrates Google's AI models via Google Cloud.</p>
+                </a>
+                <a href="https://siddhbose-kivtechs.github.io/claude-test/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">AI Assistant (Anthropic - Mid-level)</h3>
+                    <p class="text-slate-600 mt-2">Utilizes Anthropic models via AWS (potential for mid-level).</p>
+                </a>
+                <a href="https://siddhbose-kivtechs.github.io/stability-ai/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">Image Generator (Stability)</h3>
+                    <p class="text-slate-600 mt-2">Leverages Stability AI models via their native API and AWS.</p>
+                </a>
+                <a href="https://dalle3.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">Image Generator (DALL-E 3)</h3>
+                    <p class="text-slate-600 mt-2">Integrates OpenAI's DALL-E 3 via Azure for high-quality image creation.</p>
+                </a>
+                <a href="https://gimages.kneotech.cloud/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">Image Generator (Google)</h3>
+                    <p class="text-slate-600 mt-2">Generates images using Google's AI models.</p>
+                </a>
+                <a href="https://siddhbose-kivtechs.github.io/g-admin/" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <h3 class="font-bold text-lg text-slate-800">Admin Panel (Tools)</h3>
+                    <p class="text-slate-600 mt-2">Monitoring and management panel example currently showing for Google-based AI tools (Similar interface for other model providers and Master Admin Panel).</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">My 7 Month Strategic Roadmap</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                   I have a clear, five-stage plan to move from concept to validation and growth. This roadmap is designed for rapid execution and learning, and is fully adaptable to suggestions and optimizations. If selected by Incubators, I would work to have a fully working MVP and some customer traction by the end of the Program.
+                </p>
+                <div class="mt-8">
+                    <a href="https://kaushikneogi.github.io/offshoot-venture-roadmap/" target="_blank" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors inline-block">View Detailed Proposed Roadmap &rarr;</a>
+                </div>
+            </div>
+            <div class="relative max-w-2xl mx-auto">
+                 <div class="space-y-12 pl-8">
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">Stage 1: Foundation & Incorporation</h3>
+                        <p class="text-slate-600 mt-1">Connect with investors, legally incorporate the new venture, and transfer all existing IP and designs.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">Stage 2: MVP Focus</h3>
+                        <p class="text-slate-600 mt-1">Concentrate all resources on developing a robust Minimum Viable Product that showcases our core platform capabilities. While identifying the key target sector to build the initial vertical capabilities for.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">Stage 3: Rapid Prototyping & GTM</h3>
+                        <p class="text-slate-600 mt-1">Engage in rapid prototyping based on initial feedback and execute a Go-To-Market strategy for initial validation.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">Stage 4: Validation & Seed Funding</h3>
+                        <p class="text-slate-600 mt-1">Use customer feedback and early traction to validate the thesis and prepare for a follow-on seed funding round.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="font-bold text-lg text-slate-800">Stage 5: Early Product-Market Fit</h3>
+                        <p class="text-slate-600 mt-1">Iterate towards achieving strong product-market fit in our key verticals, setting the stage for scalable growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="journey">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">My Journey So Far</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                    My path has been one of continuous learning and adaptation. After navigating various challenges, including pivots and the impact of the pandemic, we are now leveraging our accumulated experience and IP to embark on a fresh start. I seek partners who can join me from Day 0 to maximize my chances of success and positive impact.
+                </p>
+            </div>
+            <div class="relative max-w-2xl mx-auto">
+                <div class="space-y-12 pl-8">
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">2018: Inception & Early Ventures</h3>
+                        <p class="text-slate-600 mt-1">Incorporated in June 2018, followed by initial brainstorming and ideation. Explored business verticals in Media Service & Printing in 2019.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">2020-2022: Pandemic Halt & Restart</h3>
+                        <p class="text-slate-600 mt-1">Business operations halted due to the pandemic. Resumed post-pandemic working in Mid/Late 2022, focusing on cybersecurity (Android Enterprise & Samsung Knox EMM Solution), CTO and Technical Co-Founder was Onboarded.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">2023: Startup Recognition & Incubation</h3>
+                        <p class="text-slate-600 mt-1">Recognized as a startup by Central & State Govt. Got incubated with JSSATE STEP (Jan-Apr 2023). Revised business model and solution, then incubated with Nasscom AI & IoT CoE, Gurugram (Apr-Dec 2023).</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">2023-2024: Development & Unsuccessful Launch</h3>
+                        <p class="text-slate-600 mt-1">Worked on "Kivtechs.cloud" development, launch & strategy (Dec 2023-Dec 2024), which was unsuccessful. Attempted to launch the old brand & prototype/MVP in 2024, which also failed. During this period we tried to on-board and work with various technical and business talents. Who post failure were put on standby</p>
+                    </div>
+                     <div class="relative timeline-item">
+                        <div class="timeline-line"></div>
+                        <h3 class="font-bold text-lg text-slate-800">Early 2025: Accelerator Programs & Collaborations</h3>
+                        <p class="text-slate-600 mt-1">Selected for Beyond Seed Accelerator (Jan 2025), and joined Nvidia Inception Program (April 2025). Participated in BEYONDXCELERATE TECH INDIA 2025 cohort (March-May 2025) although not selected for demo day as we couldn't make it to the top 10 of 38 startup cohort. We collaborated with BeyondSeed for an India AI LLM Foundation Development Call for Proposals Submission (Phase 3)  while also roping in 5 other key collaborators to be part of our proposal, ranging from leading domestic software development agencies to global giants and leading academic and commercial research labs. Evaluations are still underway of our proposal at the time of this application.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="font-bold text-lg text-slate-800">Since Feb 2025: New R&D focus with Kneotech.cloud</h3>
+                        <p class="text-slate-600 mt-1">Since February 2025, we have been working on the revised product and brand "Kneotech.cloud, as a R&D test platform". We are looking to start fresh to leverage experience and IP, seeking Day 0 investors.</p>
+</div>
+                    <div class="relative timeline-item">
+                        <h3 class="font-bold text-lg text-slate-800">July 2025: Buyout Agreement Executed with Co-founder as we mutually decided to part ways</h3>
+                        <p class="text-slate-600 mt-1">Recently I executed a Contingent Buyout Agreement with my Technical Co-founder & CTO where for: INR 3 Lakhs the entire IP developed by him will be bought by Kneogin & for another INR 75 Thousand he will provide a handover and transition support post buyout for a 3 month period.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ask">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">How Will You Help Me Leapfrog</h2>
+                 <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+                    I have faced significant challenges as the founder of a bootstrapped startup. Your support provides the precise resources I need to overcome these hurdles and accelerate my journey towards building an enduring, impactful business.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-red-50 border border-red-200 p-6 rounded-lg">
+                    <h3 class="font-bold text-xl text-red-800 mb-4">My Challenges</h3>
+                    <ul class="space-y-2 text-red-700 list-disc list-inside">
+                        <li>Multiple pivots draining limited resources</li>
+                        <li>Limited technical capacity for a robust MVP</li>
+                        <li>Lack of bandwidth for GTM validation</li>
+                        <li>Bootstrapped and pre-revenue constraints</li>
+                        <li>Ineligibility for government schemes due to 2+ years since incorporation</li>
+                        <li>Inability to engage top-tier talent</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
+                    <h3 class="font-bold text-xl text-green-800 mb-4">The Solution</h3>
+                    <ul class="space-y-2 text-green-700 list-disc list-inside">
+                        <li><span class="font-semibold">$50K-$150k pre-seed capital</span> for a 12-18 months runway</li>
+                        <li><span class="font-semibold">Pre-seed Investments will help me access greater Compute credits from multiple providers</span> to build and scale the product MVP</li>
+                        <li><span class="font-semibold">Unparalleled network</span> of mentors and customers</li>
+                        <li><span class="font-semibold">Invaluable learning</span> Guidance & Network </li>
+                        <li><span class="font-semibold">Support for potental follow-on capital/Seed Fundraise</span> post-validation</li>
+                        <li><span class="font-semibold">Credibility</span> to attract and hire the best team including talented and motivated co-founders</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-6">Utilization of Funds Raised</h3>
+                <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+                    <table class="w-full text-left table-auto">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="py-3 px-4 text-slate-700 font-semibold">Category</th>
+                                <th class="py-3 px-4 text-slate-700 font-semibold text-right">Allocation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">Initial Remuneration for establishing a small team for MVP Development utilization over 6-12 Months</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">20%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">GTM for MVP Launch</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">30%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">Acquisition of IP & Designs from Kneogin Igmisarch Private Limited - 30%-49% Stake Acquired by New Entity of Kneogin - Kneogin turned to R&D Arm  (From capital infused 30% to meet arrears and make company fully compliant - 70% for future utilization) </td>
+                                <td class="py-3 px-4 text-slate-600 text-right">25%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">Operational & Administrative Expenses Pool First 12-18 Months</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">15%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 text-slate-600">Reserves/Sink Fund</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-6">Proposed Shareholding of New Entity post Pre-Seed</h3>
+                <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+                    <table class="w-full text-left table-auto">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="py-3 px-4 text-slate-700 font-semibold">Stakeholder</th>
+                                <th class="py-3 px-4 text-slate-700 font-semibold text-right">Shareholding</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">Pre-Seed Investors</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">10%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">ESOP Pool</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">15%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-3 px-4 text-slate-600">Technical Cofounder Pool</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">20%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 text-slate-600">Kaushik Neogi</td>
+                                <td class="py-3 px-4 text-slate-600 text-right">55%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-bold text-lg text-slate-800 mb-2">My Goal: To build an enduring business that positively impacts millions by generating tangible value.</p>
+            <p>&copy; 2025 Kaushik Neogi & Kneogin Igmisarch Private Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(event, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+
+        const marketData = {
+            labels: ['SMBs', 'Educators'],
+            datasets: [{
+                label: 'India (in Millions)',
+                data: [60, 10.5],
+                backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                borderColor: 'rgba(59, 130, 246, 1)',
+                borderWidth: 1
+            }, {
+                label: 'EU (in Millions)',
+                data: [30, 6],
+                backgroundColor: 'rgba(34, 197, 94, 0.8)',
+                borderColor: 'rgba(34, 197, 94, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: marketData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + 'M+';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Count (in Millions)'
+                        }
+                    }
+                }
+            },
+        };
+
+        window.onload = function() {
+            const ctx = document.getElementById('marketSizeChart').getContext('2d');
+            new Chart(ctx, config);
+        };
+    </script>
+
+</body>
+</html>
